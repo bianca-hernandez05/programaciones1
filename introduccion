@@ -1,0 +1,95 @@
+evelyn.espinoza@fcys.uni.edu.ni
+evelynespinoza@gmail.com
+
+30/01/2023
+
+asociacion 
+herencia 
+agregacion
+composicion 
+uso
+
+nombre de la clase 
+atributos de de datos
+metodos
+
+empezar a estudiar bases de datos a nivel basico 
+
+las pruebas seran de manera individual y practica 
+
+using System;
+
+namespace Proyecto
+{
+    class Varela
+    {
+        public static void Main(String[] args)
+        {
+            //crear una pequeña apliacion consola que calcule el costo de viaje de managua a maiami y condicionar la cantidad de boletos y tenemos un precio predefinido
+            //el precio es de 200 dolares y no se aceptan valores ilogicos y cuanto se tiene que pagar
+            while (true)
+            {
+                Console.WriteLine("Bienvenido a la aeorolinia Abianca el viaje desde managua a miami es de 200 dolares cuantos boletos desea comprar");
+                int cantidadBoletos = 0;
+            
+
+                Random r = new Random();
+                int aletorio = r.Next(1, 20);
+                Console.WriteLine("este numero de asintos esta ocupado" + aletorio);
+               
+               
+                
+                for (int i = 0; i < 3; i++)
+                {
+
+                    try
+                    {
+                        cantidadBoletos = int.Parse(Console.ReadLine());
+
+                        if (cantidadBoletos > 0 && cantidadBoletos <= 10)
+                        {
+
+                            if (aletorio > cantidadBoletos)
+                            {
+                                Console.WriteLine("No tenemos los suficiente asitmos dispibles para que usted aborde");
+                                
+                            }
+                            else
+                            {
+                                Console.WriteLine($"muchas gracias por esto y su precio es de {cantidadBoletos * 200}");
+                            }
+                           
+                            
+                            
+                            break;
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("No este de ridi no se puede");
+                        }
+
+                        
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("No se aceptan valores ilogicos");
+
+                    }
+
+                    
+                    }
+
+               
+                
+            }
+
+            
+
+
+
+
+        }
+    }
+}
+
