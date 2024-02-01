@@ -1,0 +1,17 @@
+ public double validacion(double salario)
+        {
+            double numero = 0;
+            do
+            {
+                try
+                {
+                    
+                    numero = double.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("No se aceptan valores ilógicos");
+                }
+            } while (numero <= 0 || numero >= 500000);
+            return numero;
+        }
