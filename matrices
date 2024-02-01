@@ -1,0 +1,50 @@
+using System;
+
+namespace Proyecto12
+{
+    class program
+    {
+        static void Main(String[] args)
+        {
+            Console.WriteLine("Bienvenido al programa donde calculara las notas");
+            Console.WriteLine("Digite la cantidad de estudiantes a digitar");
+            int cantidadEstudiantes = int.Parse(Console.ReadLine());
+            int[,] evaluo = new int[cantidadEstudiantes, 5];
+            int notasf = 0;
+
+            for(int i = 0; i <cantidadEstudiantes; i++)
+            {
+                Console.WriteLine($"El estudiante a digitar es {i+1}");
+                do
+                {
+                    Console.Write("La nota de la prueba 1 es de");
+                    evaluo[i, 0] = int.Parse(Console.ReadLine());
+
+                } while (evaluo[i, 0] < 0 || evaluo[i, 0] > 25);
+
+                do
+                {
+                    Console.Write("La nota de la prueba 2 es de");
+                    evaluo[i, 1] = int.Parse(Console.ReadLine());
+                } while (evaluo[i, 1] < 0 || evaluo[i, 1] > 25);
+
+                do
+                {
+                    Console.Write("La nota de la prueba 3 es de");
+                    evaluo[i, 2] = int.Parse(Console.ReadLine());
+                } while (evaluo[i, 2] < 0 || evaluo[i, 2] > 25);
+
+                do
+                {
+                    Console.Write("La nota de la prueba 4 es de");
+                    evaluo[i, 3] = int.Parse(Console.ReadLine());
+                } while (evaluo[i, 3] < 0 || evaluo[i, 3] > 25);
+
+                evaluo[i,4] = evaluo[i, 0] + evaluo[i,1] + evaluo[i,2] + evaluo[i,3];
+                Console.WriteLine($"La suma de las notas es de{evaluo[i,4]}");
+               
+                
+            }
+        }
+    }
+}
