@@ -9,7 +9,7 @@ namespace Proyecto112
         {
             Apoyo ap = new Apoyo();
             int numero2 = 0;
-            Console.WriteLine("Eliga entre las 3 opciones 1.triangulo 2.cuadrado 3. rectanCulo");
+            Console.WriteLine("Elija entre las 3 opciones 1.triangulo 2.cuadrado 3. rectanCulo");
             numero2 = ap.validacion2(numero2);
 
             ap.Menu(numero2);
