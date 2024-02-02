@@ -1,0 +1,127 @@
+using System;
+using Proyecto111;
+
+namespace Proyecto111{
+
+    class Conversion
+    {
+        public static void Main(String[] args)
+        {
+            Console.WriteLine("Bienvenidos al programa de conversion");
+            Apoyo ap = new Apoyo();
+            int numero = int.Parse(Console.ReadLine());
+            ap.Menu(numero);
+
+           
+        }
+    }
+}
+
+using System;
+using System.Text;
+
+namespace Proyecto111
+{
+    public class Apoyo
+    {
+        double valor = 0;
+
+        public Apoyo() 
+        {
+        }
+
+        public double validacion(double valor)
+        {
+            double numero = 0;
+            do
+            {
+                try
+                {
+
+                    numero = double.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("No se aceptan valores ilógicos");
+                }
+            } while (numero <= 0 || numero >= 10000);
+            return numero;
+        }
+
+
+        public void Menu(int numero)
+        {
+
+            Console.WriteLine("Selecione el tipo de divisa que va a ocupar  \n 1.dolares y 2.euros");
+            double valor = 0;
+            valor = validacion(valor);
+            double numero3=0;
+            double numero4=0;
+            
+            switch (numero)
+            {
+                case 1:
+
+                    Console.WriteLine("Ingrese el monto");
+                    numero4 = validacion(numero3);
+                    Console.WriteLine("Vender.1 o comprar.2");
+                    numero3 = validacion(numero3);
+                    ConversionesDolares(numero3, numero4);
+
+                    break;
+
+                case 2:
+                    Console.WriteLine("Ingrese el monto");
+                    numero4 = validacion(numero3);
+                    Console.WriteLine("Vender.1 o comprar.2");
+                    numero3 = validacion(numero3);
+                    ConversionesEuros(numero3, numero4);
+                    break;
+            }
+        }
+
+        public void ConversionesDolares(double numero,double montoDolar)
+        {
+            switch (numero)
+            {
+                case 1:
+                    Console.WriteLine("Gracias por vender dolares");
+                    
+                        double venderDolar = montoDolar*36.10;
+                    Console.WriteLine($"Su cambio en cordobas es de {venderDolar} \n y el monto que porporciono es de {montoDolar} ");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Gracias por comprar los dolares");
+                    double compraDolar = montoDolar * 36.99;
+                    Console.WriteLine($"El monto de dolares que compro es de {compraDolar} \n el monto que usted ingreso es de");
+                    break;
+            }
+        }
+
+        public void ConversionesEuros(double numero,double montoEuro)
+        {
+            switch (numero)
+            {
+                case 1:
+                    Console.WriteLine("gracias por vender euros");
+                    double venderEuro = montoEuro * 1.0350;
+                    Console.WriteLine($"El monto de euros que cambio es de {venderEuro} \n y el monto de dolares que ingreso es de {montoEuro}");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Gracias por comprar dolares");
+                    double compraEuros = montoEuro * 1.1360;
+                    Console.WriteLine($"el monto de euros que comprar es de {compraEuros} \n y el monto que ingreso es de ");
+                    break;
+            }
+        }
+        public Apoyo(double valor)
+        {
+            this.valor = valor;
+        }
+
+        public void setValor(double valor) { 
+            this.valor = valor; }
+    }
+}
