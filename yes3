@@ -1,0 +1,161 @@
+using System;
+using Proyecto112;
+
+namespace Proyecto112
+{
+    public class Varela
+    {
+        public static void Main(String[] args)
+        {
+            Apoyo ap = new Apoyo();
+            int numero2 = 0;
+            Console.WriteLine("Eliga entre las 3 opciones 1.triangulo 2.cuadrado 3. rectanCulo");
+            numero2 = ap.validacion2(numero2);
+
+            ap.Menu(numero2);
+        }
+    }
+}
+
+using System;
+
+
+namespace Proyecto112
+{
+    public class Apoyo
+    {
+        double altura= 0;
+        double baset = 0;
+        int lados = 0;
+
+        public Apoyo()
+        {
+
+        }
+
+
+        public double validacion(double salario)
+        {
+            double numero = 0;
+            do
+            {
+                try
+                {
+
+                    numero = double.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("No se aceptan valores ilógicos");
+                }
+            } while (numero <= 0 || numero >= 500000);
+            return numero;
+        }
+
+        public int validacion2(int  salario)
+        {
+            int numero = 0;
+            do
+            {
+                try
+                {
+
+                    numero = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("No se aceptan valores ilógicos");
+                }
+            } while (numero <= 0 || numero >= 500000);
+            return numero;
+        }
+
+        public void Menu(int numero)
+        {
+            double numeroBase=0, numeroAltura=0;
+            int numeroLados=0;
+          
+
+            switch (numero)
+            {
+
+                case 1:
+
+                    Console.WriteLine("Un triaungulo");
+                    Console.WriteLine("Cual es la latura");
+                    numeroAltura = validacion(numeroAltura);
+                    Console.WriteLine("Cual es la base");
+                    numeroBase = validacion(numeroBase);
+                    triangulo(numeroBase, numeroAltura);
+                    break;
+
+                case 2:
+                    Console.WriteLine("Es un cuadrado");
+                    Console.WriteLine("Cuantos lados tiene un cuadrado");
+                    numeroLados = validacion2(numeroLados);
+                    cuadrado(numeroLados);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Rectangulo");
+                    Console.WriteLine("Cual es la latura");
+                    numeroAltura = validacion(numeroAltura);
+                    Console.WriteLine("Cual es la base");
+                    numeroBase = validacion(numeroBase);
+                    RectanGulo(numeroBase, numeroAltura);
+                    break ;
+
+
+            }
+        }
+
+        public double triangulo(double baset,double altura)
+        {
+
+            double resultado = (baset * altura) / 2;
+            Console.WriteLine(resultado);
+            return resultado;
+        }
+
+        public int cuadrado(int lados)
+        {
+            int resultado = lados*lados;
+            Console.WriteLine(resultado);
+                return lados*lados;
+        }
+
+        public double RectanGulo(double baset,double altura)
+        {
+            double resultado = (baset * altura);
+            Console.WriteLine(resultado);
+            return resultado;
+
+        }
+        public Apoyo(double altura,double baset,int lados)
+        {
+            this.altura = altura;
+            this.baset = baset;
+            this.lados = lados;
+        }
+
+        public void setAltura(double altura)
+        {
+            this.altura=altura;
+        }
+
+        public void setBaset(double baset) 
+        { 
+
+        this.baset = baset; 
+
+        }
+
+        public void setLados(int lados)
+        {
+            this.lados=lados;
+        }
+
+
+
+    }
+}
